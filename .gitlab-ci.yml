@@ -19,5 +19,4 @@ test:
 
   script:
     - ssh oskar@10.10.0.5 hostname
-    - ssh oskar@10.10.0.5 "touch /tmp/gitlab-success"
-    - ssh oskar@10.10.0.5 "ls -l /tmp/gitlab-success"
+    - ssh oskar@10.10.0.5 "touch /home/oskar/Dokumente/meine_erste_CI/CD"
