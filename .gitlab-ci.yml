@@ -1,9 +1,15 @@
 stages:
   - test
 
-test-wireguard:
+test:
   stage: test
-  script:
+  tags:
+    - wireguard
+
+  before_script:
     - apt-get update
     - apt-get install -y openssh-client
-    - ssh oskar@10.10.0.5 "hostname"
+
+  script:
+    - hostname
+    - ssh oskar@10.10.0.5 hostname
