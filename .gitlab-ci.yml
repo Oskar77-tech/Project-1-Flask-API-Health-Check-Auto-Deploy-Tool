@@ -11,6 +11,8 @@ test:
   before_script:
     - apt update
     - apt install -y openssh-client
+    - mkdir -p ~/.ssh
+    - ssh-keyscan 10.10.0.5 >> ~/.ssh/known_hosts
 
   script:
     - ssh oskar@10.10.0.5 hostname
