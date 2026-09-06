@@ -10,4 +10,3 @@ test:
     - apt update
     - apt install -y openssh-client
     - ssh oskar@10.10.0.5 hostname
-    - ping -c 4 10.10.0.4
