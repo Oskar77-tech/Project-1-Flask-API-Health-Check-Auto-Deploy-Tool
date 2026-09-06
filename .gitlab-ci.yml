@@ -5,6 +5,7 @@ stages:
 
 test:
   stage: test
+
   tags:
     - wireguard
 
@@ -14,7 +15,9 @@ test:
     - mkdir -p ~/.ssh
     - echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
     - chmod 600 ~/.ssh/id_ed25519
-    - ls -la ~/.ssh
+    - ssh-keyscan 10.10.0.5 >> ~/.ssh/known_hosts
 
   script:
-    - ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null oskar@10.10.0.5 hostname
+    - ssh oskar@10.10.0.5 hostname
+    - ssh oskar@10.10.0.5 "touch /tmp/gitlab-success"
+    - ssh oskar@10.10.0.5 "ls -l /tmp/gitlab-success"
