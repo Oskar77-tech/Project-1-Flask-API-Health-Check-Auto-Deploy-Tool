@@ -8,5 +8,5 @@ test:
 
   script:
     - apt update
-    - apt install -y iputils-ping
-    - ping -c 4 10.10.0.5
+    - apt install -y openssh-client
+    - ssh oskar@10.10.0.5 hostname
