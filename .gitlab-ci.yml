@@ -2,6 +2,9 @@ stages:
   - test
 
 test:
+  stage: test
+  tags:
+    - wireguard
+
   script:
-    - hostname
-    - curl ifconfig.me
+    - ping -c 3 10.10.0.5
