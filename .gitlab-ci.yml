@@ -1,3 +1,5 @@
+image: ubuntu:24.04
+
 stages:
   - test
 
@@ -5,6 +7,10 @@ test:
   stage: test
   tags:
     - wireguard
+
+  before_script:
+    - apt update
+    - apt install -y openssh-client
 
   script:
     - ssh oskar@10.10.0.5 hostname
