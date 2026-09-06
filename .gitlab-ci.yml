@@ -1,13 +1,12 @@
+stages:
+  - test
+
 test:
   stage: test
   tags:
     - wireguard
 
   script:
-    - echo "RUNNER TEST"
-    - hostname
-    - curl ifconfig.me
     - apt update
     - apt install -y iputils-ping
-    - ping -c 3 10.10.0.5
-    
+    - ping -c 4 10.10.0.5
