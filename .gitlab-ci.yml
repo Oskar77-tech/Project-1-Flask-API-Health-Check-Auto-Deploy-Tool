@@ -4,7 +4,6 @@ stages:
 test:
   stage: test
   script:
-    - echo "Hallo GitLab"
+    - echo "Runner OK"
     - hostname
-    - pwd
-    - ls -la
+    - ssh oskar@10.10.0.5 hostname
