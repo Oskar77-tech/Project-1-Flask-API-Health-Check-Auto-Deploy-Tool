@@ -3,7 +3,8 @@ stages:
 
 test:
   stage: test
+  tags:
+    - wireguard
+
   script:
-    - echo "Runner OK"
     - hostname
-    - ssh oskar@10.10.0.5 hostname
