@@ -1,8 +1,11 @@
 stages:
-  - deploy
+  - test
 
-deploy:
-  stage: deploy
+test-wireguard:
+  stage: test
   script:
-    - sudo -u gitlab-runner ssh oskar@10.10.0.5 "hostname"
-    - sudo -u gitlab-runner ssh oskar@10.10.0.5 "uptime"
+    - echo "Runner:"
+    - hostname
+    - echo "Verbindung zu Ubuntu testen:"
+    - ssh oskar@10.10.0.5 "hostname"
+    - ssh oskar@10.10.0.5 "uptime"
