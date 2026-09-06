@@ -2,9 +2,6 @@ stages:
   - test
 
 test:
-  stage: test
-  tags:
-    - wireguard
-
   script:
     - hostname
+    - curl ifconfig.me
