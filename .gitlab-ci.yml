@@ -7,6 +7,4 @@ test:
     - wireguard
 
   script:
-    - apt update
-    - apt install -y openssh-client
     - ssh oskar@10.10.0.5 hostname
