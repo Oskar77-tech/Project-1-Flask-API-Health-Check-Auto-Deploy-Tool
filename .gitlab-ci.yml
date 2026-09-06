@@ -12,6 +12,8 @@ test:
     - apt update
     - apt install -y openssh-client
     - mkdir -p ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+    - chmod 600 ~/.ssh/id_ed25519
     - ssh-keyscan 10.10.0.5 >> ~/.ssh/known_hosts
 
   script:
