@@ -1,0 +1,8 @@
+stages:
+  - deploy
+
+deploy:
+  stage: deploy
+  script:
+    - ssh oskar@10.10.0.5 "hostname"
+    - ssh oskar@10.10.0.5 "uptime"
