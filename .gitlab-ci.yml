@@ -1,11 +1,10 @@
 stages:
   - test
 
-test-wireguard:
+test:
   stage: test
   script:
-    - echo "Runner:"
+    - echo "Hallo GitLab"
     - hostname
-    - echo "Verbindung zu Ubuntu testen:"
-    - ssh oskar@10.10.0.5 "hostname"
-    - ssh oskar@10.10.0.5 "uptime"
+    - pwd
+    - ls -la
