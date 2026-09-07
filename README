@@ -1,97 +1,97 @@
 # API Health Check & Automated Deployment Tool
-2
- 
-3
-A DevOps project that automatically deploys a Flask-based API through GitLab CI/CD and performs health checks after deployment.
-4
- 
-5
+
+A DevOps project that automatically deploys a Flask-based API to a Linux server using GitLab CI/CD, Docker and SSH automation.
+
 ## Features
-6
- 
-7
-- Flask API
-8
-- Docker containerization
-9
+
 - Automated deployment with GitLab CI/CD
-10
-- SSH-based remote deployment
-11
-- Health check endpoint
-12
-- Automated Docker image rebuild on every push
-13
- 
-14
-## Architecture
-15
- 
-16
-Git Push
-17
-↓
-18
-GitLab CI/CD
-19
-↓
-20
-SSH Deployment
-21
-↓
-22
-Docker Build
-23
-↓
-24
-Container Restart
-25
-↓
-26
-Health Check
-27
- 
-28
-## Technologies
-29
- 
-30
+- Docker-based application deployment
+- SSH remote deployment
+- Health check endpoint validation
+- Automatic container replacement during deployment
+- Linux server automation
+
+## Tech Stack
+
 - Python
-31
 - Flask
-32
 - Docker
-33
 - GitLab CI/CD
-34
 - Linux
-35
 - SSH
-36
- 
-37
+
+## Architecture
+
+```text
+Git Push
+    ↓
+GitLab CI/CD
+    ↓
+SSH Deployment
+    ↓
+Docker Build
+    ↓
+Container Restart
+    ↓
+Health Check Validation
+```
+
 ## API Endpoints
-38
- 
-39
+
 ### GET /
-40
- 
-41
+
 Returns application status.
-42
- 
-43
-Response:
-44
- 
-45
+
+Example response:
+
 ```json
-46
 {
-47
-"service": "API Health Check",
-48
-"status": "running"
-49
+  "service": "API Health Check",
+  "status": "running"
 }
+```
+
+### GET /health
+
+Returns the current health status.
+
+Example response:
+
+```json
+{
+  "status": "healthy"
+}
+```
+
+## CI/CD Workflow
+
+1. Developer pushes changes to GitLab
+2. GitLab CI/CD pipeline starts automatically
+3. Runner connects to the deployment server via SSH
+4. Repository is updated using `git pull`
+5. Docker image is rebuilt
+6. Existing container is stopped and replaced
+7. Health check endpoint is validated
+
+## Challenges Solved
+
+During development I solved several real-world DevOps challenges:
+
+- SSH key authentication between GitLab Runner and deployment server
+- Automated Docker deployments
+- Docker container lifecycle management
+- Linux troubleshooting and debugging
+- Port conflict resolution
+- Health check verification after deployment
+
+## Future Improvements
+
+- Multi-target health checks
+- Prometheus metrics integration
+- Slack or Microsoft Teams notifications
+- Docker Registry integration
+- Kubernetes deployment
+
+## Author
+
+Oskar
