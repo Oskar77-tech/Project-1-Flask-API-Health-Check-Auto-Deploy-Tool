@@ -16,12 +16,12 @@ deploy:
     - mkdir -p ~/.ssh
     - echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
     - chmod 600 ~/.ssh/id_ed25519
-    - ssh-keyscan 10.10.0.5 >> ~/.ssh/known_hosts
+    - ssh-keyscan $DEPLOY_HOST >> ~/.ssh/known_hosts
 
   script:
   - |
-    ssh oskar@10.10.0.5 "
-      cd /home/oskar/project-1-api-healthcheck-and-automation &&
+    ssh $DEPLOY_USER@$DEPLOY_HOST "
+      cd $DEPLOY_PATH &&
       git pull &&
       docker build -t api-health-check . &&
       docker stop api-health-check || true &&
@@ -45,4 +45,4 @@ verify:
 
   script:
     - sleep 10
-    - curl --fail http://10.10.0.5:5000/health
+    - curl --fail http://$DEPLOY_HOST:5000/health
