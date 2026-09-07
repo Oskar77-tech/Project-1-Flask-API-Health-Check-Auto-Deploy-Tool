@@ -101,6 +101,9 @@ During development I solved several real-world DevOps challenges:
 - Docker Registry integration
 - Kubernetes deployment
 
+## Architecture
+docs/architecture.png
+
 ## Successful CI/CD Pipeline
 screenshots/GitLab Pipeline.png
 
