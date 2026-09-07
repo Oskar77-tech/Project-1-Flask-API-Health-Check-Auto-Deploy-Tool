@@ -73,6 +73,15 @@ Example response:
 6. Existing container is stopped and replaced
 7. Health check endpoint is validated
 
+## Required CI/CD Variables
+
+The following GitLab CI/CD variables are required:
+
+- DEPLOY_HOST
+- DEPLOY_USER
+- DEPLOY_PATH
+- SSH_PRIVATE_KEY
+
 ## Challenges Solved
 
 During development I solved several real-world DevOps challenges:
