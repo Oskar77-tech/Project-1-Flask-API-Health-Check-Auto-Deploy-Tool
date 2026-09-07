@@ -8,7 +8,7 @@ deploy:
   stage: deploy
 
   tags:
-    - wireguard
+    - deployment
 
   before_script:
     - apt update
