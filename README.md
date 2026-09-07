@@ -101,6 +101,17 @@ During development I solved several real-world DevOps challenges:
 - Docker Registry integration
 - Kubernetes deployment
 
+## Successful CI/CD Pipeline
+screenshots/GitLab Pipeline.png
+
+## Running Docker Container
+
+screenshots/docker ps.png
+
+## Health Check Endpoint
+
+screenshots/Health Check Screenshot.png
+
 ## Author
 
 Oskar
