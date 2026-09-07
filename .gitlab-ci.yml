@@ -19,19 +19,19 @@ deploy:
     - ssh-keyscan 10.10.0.5 >> ~/.ssh/known_hosts
 
   script:
-    - |
-      ssh user@10.10.0.5 "
-        cd /opt/api-health-check &&
-        git pull &&
-        docker build -t api-health-check . &&
-        docker stop api-health-check || true &&
-        docker rm api-health-check || true &&
-        docker run -d \
-          --name api-health-check \
-          -p 5000:5000 \
-          --restart unless-stopped \
-          api-health-check
-      "
+  - |
+    ssh oskar@10.10.0.5 "
+      cd /home/oskar/project-1-api-healthcheck-and-automation &&
+      git pull &&
+      docker build -t api-health-check . &&
+      docker stop api-health-check || true &&
+      docker rm api-health-check || true &&
+      docker run -d \
+        --name api-health-check \
+        -p 5000:5000 \
+        --restart unless-stopped \
+        api-health-check
+    "
 
 verify:
   stage: verify
