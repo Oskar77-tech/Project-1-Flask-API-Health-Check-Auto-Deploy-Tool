@@ -103,4 +103,4 @@ During development I solved several real-world DevOps challenges:
 
 ## Author
 
-Oskar
+Oskar Staudacher
