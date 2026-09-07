@@ -1,0 +1,97 @@
+# API Health Check & Automated Deployment Tool
+2
+ 
+3
+A DevOps project that automatically deploys a Flask-based API through GitLab CI/CD and performs health checks after deployment.
+4
+ 
+5
+## Features
+6
+ 
+7
+- Flask API
+8
+- Docker containerization
+9
+- Automated deployment with GitLab CI/CD
+10
+- SSH-based remote deployment
+11
+- Health check endpoint
+12
+- Automated Docker image rebuild on every push
+13
+ 
+14
+## Architecture
+15
+ 
+16
+Git Push
+17
+↓
+18
+GitLab CI/CD
+19
+↓
+20
+SSH Deployment
+21
+↓
+22
+Docker Build
+23
+↓
+24
+Container Restart
+25
+↓
+26
+Health Check
+27
+ 
+28
+## Technologies
+29
+ 
+30
+- Python
+31
+- Flask
+32
+- Docker
+33
+- GitLab CI/CD
+34
+- Linux
+35
+- SSH
+36
+ 
+37
+## API Endpoints
+38
+ 
+39
+### GET /
+40
+ 
+41
+Returns application status.
+42
+ 
+43
+Response:
+44
+ 
+45
+```json
+46
+{
+47
+"service": "API Health Check",
+48
+"status": "running"
+49
+}
