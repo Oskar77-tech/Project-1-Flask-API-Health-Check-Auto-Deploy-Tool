@@ -1,7 +1,0 @@
-services:
-  api-health-check:
-    build: .
-    container_name: api-health-check
-    ports:
-      - "5000:5000"
-    restart: unless-stopped
