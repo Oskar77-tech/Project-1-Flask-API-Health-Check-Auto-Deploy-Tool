@@ -1,22 +1,48 @@
 image: ubuntu:24.04
 
 stages:
-  - test
+  - deploy
+  - verify
 
-test:
-  stage: test
+deploy:
+  stage: deploy
 
   tags:
     - wireguard
 
   before_script:
     - apt update
-    - apt install -y openssh-client
+    - apt install -y openssh-client curl
     - mkdir -p ~/.ssh
     - echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
     - chmod 600 ~/.ssh/id_ed25519
     - ssh-keyscan 10.10.0.5 >> ~/.ssh/known_hosts
 
   script:
-    - ssh oskar@10.10.0.5 hostname
-    - ssh oskar@10.10.0.5 "touch /home/oskar/Dokumente/meine_erste_CI_CD"
+    - |
+      ssh user@10.10.0.5 "
+        cd /opt/api-health-check &&
+        git pull &&
+        docker build -t api-health-check . &&
+        docker stop api-health-check || true &&
+        docker rm api-health-check || true &&
+        docker run -d \
+          --name api-health-check \
+          -p 5000:5000 \
+          --restart unless-stopped \
+          api-health-check
+      "
+
+verify:
+  stage: verify
+
+  tags:
+    - wireguard
+
+  before_script:
+    - apt update
+    - apt install -y curl
+
+  script:
+    - sleep 10
+    - curl --fail http://10.10.0.5:5000/health
